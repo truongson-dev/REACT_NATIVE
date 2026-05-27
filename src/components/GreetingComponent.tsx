@@ -1,15 +1,15 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 // Định nghĩa component Greeting với props name và age
-interface GreetingProps {
+interface Props {
   name: string;
   age: number;
 }
 
-const GreetingComponent: React.FC<GreetingProps> = ({ name, age }) => {
+const GreetingComponent = ({ name, age }: Props) => {
   const handlePress = () => {
-    Alert.alert('Thông báo', `Hello ${name}!`);
+    Alert.alert('Thông báo', `Xin chào ${name}, ${age} tuổi`);
   };
 
   return (
@@ -17,7 +17,7 @@ const GreetingComponent: React.FC<GreetingProps> = ({ name, age }) => {
       <Text style={styles.helloText}>Hello {name},</Text>
       <Text style={styles.ageText}>{age} tuổi</Text>
       <View style={styles.underline} />
-      
+
       <TouchableOpacity style={styles.button} onPress={handlePress} activeOpacity={0.7}>
         <Text style={styles.buttonText}>Nhấn vào đây</Text>
       </TouchableOpacity>
